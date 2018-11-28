@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<style>
+	*{
+		padding: 0;margin: 0;
+	}
+	#wrap{
+		width: 100%;background: pink;
+		position: relative;
+	}
+	ul {
+		width: 1000px;
+		position: relative;
+		height: 650px;
+		margin:0 auto;
+		overflow: hidden;
+	}
+	ul li {
+		width: 198px;
+		height: 198px;
+		float: left;
+		list-style: none;
+		text-align: center;
+		overflow: hidden;
+		border:1px solid red;
+		position: relative;
+		margin: 50px;
+	}
+	.clear::before,.clear::after{
+		content: "";
+		clear: both;
+		display: table;
+	}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="ul" class="clear">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<script>
+	var wrap = document.getElementById("wrap");
+	var ul = wrap.children[0];
+	var lis = ul.children;
+	for(var i = 0;i<lis.length;i++){
+		lis[i].onclick = function(event){	
+			//获取事件发生对象(event为事件内部参数)
+			var event = event || window.event;
+			console.log(event)
+			//获取页面pageX、pageY的值(pageX是事件发生位置与文档最左侧的距离)
+			var pageX = event.pageX || event.clientX + document.documentElement.scrollTop;
+			var pageY = event.pageY || event.clientY + document.documentElement.scrollLeft;
+			console.log("鼠标与文档最左侧的距离:"+pageX)
+			console.log("鼠标与文档最顶部的距离:"+pageY)
+			//获取页面screenX、screenY的值(screenX是事件发生位置与屏幕最左侧的距离)
+			var screenX = event.screenX;
+			var screenY = event.screenY;
+			console.log("鼠标与屏幕最左侧的距离:"+screenX)
+			console.log("鼠标与屏幕最顶部的距离:"+screenY)
+			//获取clientX、clientY(clientX是事件发送位置与浏览器最左侧的距离)
+			var clientX = event.clientX;
+			var clientY = event.clientY;
+			console.log("鼠标与浏览器最左侧的距离:"+clientX)
+			console.log("鼠标与浏览器最顶部的距离:"+clientY)
+			//获取元素宽度、高度(获取元素本身的宽度和高度)(ofsetWidth是width+padding+border的距离，不包括margin)
+			var width = this.offsetWidth;
+			var height = this.offsetHeight;
+			console.log("当前元素本身的宽度:"+width)
+			console.log("当前元素本身的高度:"+height)
+			//设置元素的宽高,style.width,不能获取在css中的样式，只能获取行内样式和设置，平常要用offsetWidth。
+			this.style.width = 198+"px";
+			this.style.height = 198+"px";
+			//获取元素当前偏移量(获取元素到有定位的父级元素的最左侧的距离)
+			var left = this.offsetLeft;
+			var top = this.offsetTop;
+			console.log("当前元素距离最左侧父级元素的偏移量:"+left)
+			console.log("当前元素距离最顶部父级元素的偏移量:"+top)
+			//获取发生事件在当前元素的位置(文档位置-偏移量)
+			var x = pageX-left;
+			var y = pageY-top;
+			console.log("鼠标在当前元素中X轴的位置:"+x)
+			console.log("鼠标在当前元素中Y轴的位置:"+y)
+			//获取当前元素的宽度(clientWidth是width+padding距离，不包括margin和border)
+			var xx = this.clientWidth;
+			var yy = this.clientHeight;
+			console.log("当前元素的宽度（不包括外边距和边线）:"+xx)
+			console.log("当前元素的高度（不包括外边距和边线）:"+yy)
+			//调用盒子最终显示的属性
+			var xxx = getStyle(this,"width");
+			var yyy = getStyle(this,"top");
+			console.log("当前元素最终显示的属性:"+xxx)
+			console.log("当前元素最终显示的属性:"+yyy)
+		}
+	}
+	window.onscroll = function(){
+		//调用滚动条被卷去距离
+		console.log(scroll().top)
+		console.log(scroll().left)
+		
+
+	}	
+    window.onresize = function () {
+    	//调用浏览器可视窗口的区域
+		console.log(client().width);
+		console.log(client().height);
+    };
+	//封装获取滚动条被卷去的距离
+	function scroll(){
+		return {			
+			top:window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+			left:window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+		}
+	}
+	//封装获取浏览器可视窗口区域
+	function client(){
+		return {
+			width:window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth|| 0,
+			height:window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight|| 0
+		}
+	}
+	//封装获取盒子最终显示的属性
+	function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+    $("li").mouseenter(function(){
+    	console.log($(this).offset().left);
+    	console.log($(this).offset().top);
+    })
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	console.log(isNaN(3))//f  是数字为false
+	console.log(isNaN("3.33"))//f 字符串数字可以转换为数字，所以为false
+	console.log(isNaN(""))//f   为空的时候默认为0，是数字所以为false
+	console.log(isNaN(" "))//f   为空格的时候默认为0，是数字所以为false
+	console.log(isNaN(null))//f 为空的时候默认为0，是数字所以为false
+	console.log(isNaN())//t 没填和null不一样，没填不是一个数字为真
+	console.log(isNaN("null"))//t  字符串无法转换为数字，被转化为NaN
+	console.log(isNaN(NaN));//t  不是一个数字肯定不是一个数字，返回false
+	//一个非数字不会等于另一个为NaN的非数字
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+<style>
+*{padding:0; margin:0;}
+ul{list-style:none;}
+.clearfix::before,.clearfix::after{
+    clear: both;
+    display: table;
+    content: "";
+}
+img{
+    width: 100px;
+    height: auto;
+}
+.demo1 ul,.demo2 ul,.demo3 ul{
+    background: pink;
+    width: 800px;
+    height: 150px;
+}
+.demo1 ul li,.demo2 ul li,.demo3 ul li{
+    width:100px; 
+    height:100px; 
+    margin:20px; 
+}
+.demo1 li{background:#eee; text-align:center;font-size:0;float: left;}
+.demo1 .txt,
+.demo1 .vam{display:inline-block; *display:inline; *zoom:1; vertical-align:middle;font-size:12px;background:#ccc;}
+.demo1 .vam{height:100%;}
+
+.demo2 ul{
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+.demo2 li{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.demo3 {
+    display: table;/*主要代码*/
+    *position: relative;  /*for ie67*/
+    overflow: hidden; margin: 0 auto;
+}
+.demo3 ul{
+    vertical-align: middle; display: table-cell; text-align: center; /*主要代码*/
+    *position: absolute; *top: 50%; *left: 50%; /*for ie67*/
+}
+.demo3 li{
+    display: inline-block; /*主要代码*/
+    *display: inline; zoom: 1; *position: relative; *top: -50%; *left: -50%; /*for ie67*/
+    /*border: 1px solid #fff;*/
+}
+
+</style>
+</head>
+<body>
+<div class="demo1">
+	<ul class="clearfix">
+    	<li>
+        	<div class="txt">
+            	<p>结婚撒花</p>
+                <p>结婚撒花结婚撒花结婚撒花结婚撒花</p>
+            </div>
+            <div class="vam"></div>
+        </li>
+        <li>
+        	<div class="txt">
+                <p>结婚撒花结婚撒花结婚撒花结婚撒花</p>
+            </div>
+            <div class="vam"></div>
+        </li>
+        <li>
+        	<div class="txt">
+            	<p>结婚撒花结婚撒花</p>
+                <img src="img/asd.jpg" alt="" />
+            </div>
+            <div class="vam"></div>
+        </li>
+    </ul>	
+</div>
+<br />
+<div class="demo2">
+    <ul>
+        <li><img src="img/asd.jpg" alt="" />123123</li>
+        <li><img src="img/asd.jpg" alt="" />萨斯舒服圣达菲舒服是</li>
+        <li><img src="img/asd.jpg" alt="" /><img src="img/asd.jpg" alt="" /></li>
+    </ul>
+</div>
+<br />
+<div class="demo3">
+    <ul>
+        <li><img src="img/asd.jpg" alt="" /></li>
+        <li><img src="img/asd.jpg" alt="" /><img src="img/asd.jpg" alt="" /></li>
+        <li><img src="img/asd.jpg" alt="" /><img src="img/asd.jpg" alt="" /><img src="img/asd.jpg" alt="" /></li>
+    </ul>
+</div>
+</body>
+</html>

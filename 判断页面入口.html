@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2种判断PC移动端入口函数</title>
+	</head>
+	<body>
+		11111111111
+		<script type="text/javascript">
+			alert(IsPC())
+			 function IsPC() {
+		        var userAgentInfo = navigator.userAgent;
+		        var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone", "iPod"];
+		        var flag = "pc";
+		        for (var v = 0; v < Agents.length; v++) {
+		            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+		                flag = Agents[v];
+		                break;
+		            }
+		        }
+		        return flag;
+		    }
+		</script>
+		<script type="text/javascript"> 
+	    function browserRedirect() { 
+	      var sUserAgent = navigator.userAgent.toLowerCase(); 
+	      var bIsIpad = sUserAgent.match(/ipad/i) == "ipad"; 
+	      var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os"; 
+	      var bIsMidp = sUserAgent.match(/midp/i) == "midp"; 
+	      var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4"; 
+	      var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb"; 
+	      var bIsAndroid = sUserAgent.match(/android/i) == "android"; 
+	      var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce"; 
+	      var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile"; 
+	      document.writeln("您的浏览设备为："); 
+	      if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) { 
+	        document.writeln("phone"); 
+<<<<<<< HEAD
+	      } else {
+=======
+	      } else { 
+>>>>>>> 83c1bbcfdc75c5617b4f7407de4f2580f2f3ca96
+	        document.writeln("pc"); 
+	      } 
+	    } 
+	  
+	    browserRedirect(); 
+	  </script>
+	</body>
+</html>

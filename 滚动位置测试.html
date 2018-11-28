@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>222</title>
+		<script src="jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+		<style>
+			.a1{width: 100%;height: 300px;background: #008000;border: 1px solid #000000;margin-bottom: 50px;}
+			.a2{width: 100%;height: 300px;background: #0000FF;border: 1px solid #000000;margin-bottom: 50px}
+			.a3{width: 100%;height: 300px;background: #66512C;border: 1px solid #000000;margin-bottom: 50px}
+			.a4{width: 100%;height: 300px;background: #C7254E;border: 1px solid #000000;margin-bottom: 50px}
+			.a5{width: 100%;height: 300px;background: #FCF8E3;border: 1px solid #000000;margin-bottom: 50px}
+			.bar{position: fixed;left: 50%;top:100px;margin-left: -600px;display: none;animation:myfirst 1s;-webkit-animation:myfirst 1s; /* Safari and Chrome */}
+			.bar ul li a{text-decoration: none;color:#333;width: 40px;display: block;margin-bottom: 10px;border-bottom: 1px solid #999;padding: 10px;}
+			.bar ul li{list-style: none; text-align: center;}
+			.b1 .active{background: #008000;color: #fff;}
+			.b2 .active{background: #0000FF;color: #fff}
+			.b3 .active{background: #66512C;color: #fff}
+			.b4 .active{background: #C7254E;color: #fff}
+			.b5 .active{background: #FCF8E3;color: #fff}
+			.tfiex{position: fixed;bottom: 0;width: 100%;height:150px;;background:rgba(0,0,0,0.6) ;display: block;z-index: 99;}
+			.tfie{width: 1000px;margin: 0 auto;display: block;position: relative;}
+			/*.tfie2{background:url(img/asd.png) 0 0 no-repeat;height: 204px;margin-top: -54px;margin-left: 50px;}*/
+			/*.xx{background: url(img/mask-christmas.png) 0 0 no-repeat;display: block;height: 50px;width:50px;position: absolute;top: 0;left: 0;margin-top: 54px;z-index: 999;transition: all 1s;}*/
+			/*.xx:hover{transform: rotate(360deg);transition: all 1s;}*/
+			/*.weixin{background: url(img/mask-christmas.png) 6px -83px no-repeat;position: absolute;top: 82px;left: 776px;height: 100px;width:100px;z-index: 9999;}*/
+			@keyframes myfirst
+			{
+			0%   {position: fixed;left: 50%;top:0px;margin-left: -600px;}
+			50%  {position: fixed;left: 50%;top:300px;margin-left: -600px;}
+			100% {position: fixed;left: 50%;top:100px;margin-left: -600px;}
+			}
+			@-webkit-keyframes myfirst
+			{
+			0%   {position: fixed;left: 50%;top:0px;margin-left: -600px;}
+			50%  {position: fixed;left: 50%;top:300px;margin-left: -600px;}
+			100% {position: fixed;left: 50%;top:100px;margin-left: -600px;}
+			}
+			/*@-webkit-keyframes myfirst2
+			{
+			0%   {position: fixed;left: 50%;top:100px;margin-left: -600px;}
+			50%  {position: fixed;left: 50%;top:300px;margin-left: -600px;}
+			100% {position: fixed;left: 50%;top:500px;margin-left: -600px;}
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="tfiex">
+			<div class="tfie">
+				<a class="xx"></a>
+				<div class="tfie2"></div>
+				<div class="weixin"></div>
+				<div class="weixin2">
+					<div></div>
+				</div>
+			</div>
+		</div>
+		<div style="width: 1000px;margin: 0 auto;position: relative;">
+			<div style="width: 100%;height: 300px;background: #FFFF00;margin-bottom: 50px;"></div>
+			<div class="a1" name="br-sj" id="br-sj"></div>
+			<div class="a1"></div>
+			<div class="a1"></div>
+			<div class="a2" name="br-cj" id="br-cj"></div>
+			<div class="a2"></div>
+			<div class="a2"></div>
+			<div class="a3" name="br-cj2" id="br-cj2"></div>
+			<div class="a3"></div>
+			<div class="a3"></div>
+			<div class="a4" name="br-gn" id="br-gn"></div>
+			<div class="a4"></div>
+			<div class="a4"></div>
+			<div class="a5" name="br-zb" id="br-zb"></div>
+			<div class="a5"></div>
+			<div class="a5"></div>
+			<div class="a5"></div>
+			<div class="a5"></div>
+			<div class="bar">
+				<ul>
+					<li class="b1"><a href="#br-sj">暑假旅游</a></li>
+					<li class="b2"><a href="#br-cj">出境长线</a></li>
+					<li class="b3"><a href="#br-cj2">出境短线</a></li>
+					<li class="b4"><a href="#br-gn">国内旅游</a></li>
+					<li class="b5"><a href="#br-zb">周边旅游</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			$(".xx").click(function(){
+				$(".xx").parents(".tfiex").css("display","none");
+			})
+			$(window).scroll(function(){
+				console.log(
+					"获取浏览器显示区域（可视区域）的高度 ：  "+$(window).height()+"\n"+
+					"获取页面的文档高度  ：  "+$(document).height()+"\n"+
+					"浏览器当前窗口文档body的高度：  " + $(document.body).height()+"\n"+
+					"获取滚动条到顶部的垂直高度 (即网页被卷上去的高度)  " + $(document).scrollTop()+"\n"+
+					"获取或设置元素的高度：" +	$(".a1").height()+"\n"+
+					"某个元素的上边界到body最顶部的距离："+ $(".a1").offset().top+"在元素的包含元素不含滚动条的情况下"+"\n"
+				);
+			})
+			$(document).ready(function(){
+				$(window).scroll(function(){
+					var wtop = $(document).scrollTop();
+					if(wtop >= 358){
+						$(".bar").css("display","block");
+						for(var i=1;i<6;i++){
+							var temp;
+							try{
+							 temp=$(".a"+(i+1)).offset().top;
+							}catch(e){
+								temp=$(".a"+i).offset().top+$(".a"+i).height();
+							}
+							if($(".a"+i).offset().top <= wtop && temp>wtop){
+								$(".bar").find("a").removeClass("active");
+								$(".b"+i+" a").addClass("active");
+								break;
+							}
+						}
+					}else{
+						$(".bar").css("display","none");
+					}
+				})
+			})
+	
+	//		$(document).ready(function(){
+	//			$(window).scroll(function(){
+	////				var dtop = $(".a5").offset().top;
+	////			alert(dtop);测试内容高度
+	//				var wtop = $(".bar").offset().top;
+	//				if(wtop>=300){
+	//					$(".bar").css("display","block");
+	//					if(wtop>=358 && wtop<1414){
+	//						$(".bar").find("a").removeClass("active");
+	//						$(".b1 a").addClass("active");
+	//					}else if(wtop>=1414 && wtop<2822){
+	//						$(".bar").find("a").removeClass("active");
+	//						$(".b2 a").addClass("active");
+	//					}else if(wtop>=2822 && wtop<4230){
+	//						$(".bar").find("a").removeClass("active");
+	//						$(".b3 a").addClass("active");
+	//					}else if(wtop>=4230 && wtop<5638){
+	//						$(".bar").find("a").removeClass("active");
+	//						$(".b4 a").addClass("active");
+	//					}else{
+	//						$(".bar").find("a").removeClass("active");
+	//						$(".b5 a").addClass("active");
+	//					}
+	//				}else{
+	//					$(".bar").css("display","none");
+	//				}
+	//			})
+	//		})
+		</script>
+	</body>
+
+</html>

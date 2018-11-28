@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery/jquery-1.9.1.min.js"></script>
+	<style>
+		html,body,#vvv{
+			width: 100%;
+			height: 100%;
+		}
+		.model-bg{
+    		width: 100%;
+    		height: 100%;
+    		position: fixed;
+    		top: 0;
+    		left: 0;
+    		bottom: 0;
+    		right: 0;
+    		z-index: 1000;
+    		background: white;
+    		display: none;
+    	}
+    	.model-bg img{
+    		display: block;
+    		margin: 30% auto 0;
+    	}
+    	.anniu{
+    		color: red;
+    		border: 1px solid red;
+    	}
+    	.shuchu{
+    		color: red;
+    		border: 1px solid black;
+    		width: 100%;
+    		height: 100px;
+    	}
+	</style>
+</head>
+<body>
+<div class="model-bg"><img src="img/asd.jpg" alt=""></div>
+<div class="anniu">点我加载</div>
+<div class="shuchu"></div>
+<div style="height:1000px">111111111111111</div>
+ <div id="top" >top</div>
+
+<script type="text/javascript">
+
+$(function(){
+  $("#top").click(function() {
+      $("html,body").animate({scrollTop:0}, 500);
+  }); 
+ })
+
+</script>
+	<script>
+	$(function(){
+		$(".anniu").click(function(){
+			$.ajax({
+				url:"http://api.pocketgear360.com/api/v1.0/categories",
+				type:"get",
+				beforeSend:function(){
+					$(".model-bg").show();
+				},
+				success:function(data){
+					// console.log(data.categories.length);
+					// console.log(Math.floor(Math.random()*16));					
+					$(".shuchu").html(data.categories[Math.floor(Math.random()*16)].description);
+				},
+				complete:function(){
+					$(".model-bg").hide();
+				}
+			})
+		})			
+	})
+	</script>
+</body>
+</html>

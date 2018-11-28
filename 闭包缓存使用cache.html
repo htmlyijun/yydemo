@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	function cc(){
+		var data=[];
+		var hc = {};
+		var max = 10;
+		function cache(name,val){
+			if(data.length>max){
+				var de = data.shift();
+			}
+			data.push(name);
+			hc[name] = val;
+			delete hc[de];
+			console.log(hc);
+		}
+		return cache;
+	}
+	var c = cc()
+	var arr1 = [];
+	var arr2 = [];
+	for(var i=0;i<10;i++){
+		arr1[i] = 'name'+i;
+		arr2[i] = 'zhi'+i;
+	}
+	for(var j=0;j<arr1.length;j++){
+		c(arr1[j],arr2[j])
+	}
+	</script>
+</body>
+</html>

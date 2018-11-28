@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing:border-box;
+
+		}
+		ul{
+			border-left: 1px solid yellow;
+			border-top: 1px solid yellow;
+		}
+		li{
+			width: 25%;
+			list-style: none;
+			float: left;
+			background: red;
+			/*border:1px solid yellow;*/
+			/*border-left: 1px solid yellow;*/
+			border-right: 1px solid yellow;
+			border-bottom: 1px solid yellow;
+		}
+		.clearfix::before,.clearfix::after{
+			clear: both;
+			display: table;
+			content: '';
+		}
+
+	</style>
+</head>
+<body>
+	<ul class="clearfix">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+		<li>13</li>
+		<li>14</li>
+		<li>15</li>
+		<li>16</li>
+		<li>17</li>
+		<li>18</li>
+		<li>19</li>
+		<li>20</li>
+	</ul>
+</body>
+<script>	
+(function(){
+	function add(){
+		var a = 3000;
+		return {
+			set:function(){
+				a++
+			},
+			get:function(){
+				console.log(a)
+			}
+		}
+	}
+	function min(){
+		var a= 3000;
+	}
+})();
+
+
+function f(){
+	this.name='yj';
+	this.age = '10';
+}
+f.prototype.date = new Date();
+f.prototype.str = new String()
+var a = new f();
+console.log(a.name)
+console.log(a.date.getFullYear())
+console.log(new Date())
+
+function zhangdan(){
+	this.say = function(){
+		console.log('hello world')
+	}
+	////....
+}
+f.prototype.zd = new zhangdan();
+a.zd.say()
+
+
+
+</script>
+
+</html>

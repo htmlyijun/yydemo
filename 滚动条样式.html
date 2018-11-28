@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.box{
+		background: green;
+		height: 800px;
+		overflow-y:scroll;
+	}
+	.box::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 40px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 4px;
+    }
+    .box::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 5px;
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background: black;
+    }
+    .box::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 0;
+        background: yellow;
+    }
+	.boxa{
+		height: 200px;
+		background: red;
+	}
+	.boxb{
+		height: 1000px;
+		background: pink;
+		position: relative;
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	</style>
+</head>
+<body>
+<!-- 1.滚动条 -->
+<div class="box">
+	<div class="boxa">
+		1
+	</div>
+	<div class="boxb">
+		1
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		
+		//forEach
+		var arr = ['fsd','sdf','gerger',4232,34]
+		arr.forEach(function(v,i){
+			console.log(v+'---'+i)
+		})
+		//map
+		var arr2 = arr.map(function(v,i){
+			return '我是第'+i+'项，我的值是'+v;
+		})
+		arr2.forEach(function(v,i){
+			console.log(v+'---'+i)
+		})
+		//filter
+		var arr3 = arr.filter(function(v,i){
+			return (typeof v)=='string';
+		})
+		console.log(arr)
+		console.log(arr2)
+		console.log(arr3)
+	</script>
+</body>
+</html>

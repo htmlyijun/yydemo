@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止动画</title>
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</head>
+<style>
+	*{
+		margin: 0;padding: 0;
+	}
+	.box{width: 500px;height: 100px;position: relative;}
+	.box:after,.box:before{clear: both;display: table;content: ""}
+	.box>li{width: 20%;height: 100px;line-height: 30px;background-color: pink;float: left;margin: 0 10px;}
+	.box2{
+		position: absolute;
+		left: 0;
+		top: 100px;
+		width: 100%;
+		background: yellow;
+		display: none;
+	}
+	.box2 li{
+		height: 100px;
+		width: 100%;
+	}
+	li{
+		list-style: none;
+	}
+</style>
+<body>
+	<ul class="box">
+		<li>1
+			<ul class="box2">
+				<li>11</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li>2
+			<ul class="box2">
+				<li>12</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li>3
+			<ul class="box2">
+				<li>13</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li>4
+			<ul class="box2">
+				<li>14</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+<script>
+	$(function(){
+		$('.box').children().on('mouseenter',function(){
+			$(this).children().stop().slideDown();
+		})
+		$('.box').children().on('mouseleave',function(){
+			$(this).children().stop().slideUp();
+		})
+	})
+</script>
+</html>

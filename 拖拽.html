@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.box{
+		border: 1px dashed black;
+	}
+	.red{
+		background: red;
+	}
+	.yellow{
+		background: yellow;
+	}
+	.blue{
+		background: blue;
+	}
+	img,.dd,.box{
+		width: 100px;
+		height: 100px;
+		display: block;
+		float: left;
+	}
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.ok1,.ok2,.ok3{
+		width: 500px;
+		height: 100px;
+		margin-top: 50px;
+		margin:0 auto;
+	}
+	</style>
+</head>
+<body>
+	<div class="ok1">
+		<img src="./img/tuozhuai01.jpg" class="img" alt="" draggable="true">
+		<img src="./img/tuozhuai02.jpg" class="img" alt="" draggable="true">
+		<img src="./img/tuozhuai03.jpg" class="img" alt="" draggable="true">
+	</div>
+	<div class="ok2">
+		<div class="dd red" draggable="true">1</div>
+		<div class="dd yellow" draggable="true">2</div>
+		<div class="dd blue" draggable="true">3</div>
+	</div>
+	<div class="ok3">
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+		<div class="box" draggable="true"></div>
+	</div>
+	
+	<script>
+		var tt = null;
+		var boxs = document.querySelectorAll('.box');
+		var imgs = document.querySelectorAll('img');
+		var dds = document.querySelectorAll('.dd');
+		for(var i=0;i<imgs.length;i++){
+			// 必须要先禁用被拖拽的元素默认事件（必须，不然后面的ondrop事件无法触发）
+			boxs[i].ondragover = function(e){
+				e.preventDefault()
+			}
+			// 拖动开启后，获取当前元素
+			imgs[i].ondragstart = function(){
+				tt = this
+			}
+			// 拖拽开启后，获取背景颜色
+			dds[i].ondragstart = function(){
+				tt = this
+			}
+			// 拖拽松开后，把全局样式设置到被放元素上。
+			boxs[i].ondrop = function(){
+				//如果tt有src属性就证明是拿了图片，没有则是背景。
+				if(tt.src){
+					this.style.background = "url("+tt.src+")";
+				}else{
+					this.style.background = window.getComputedStyle(tt).background;
+				}				
+			}
+		}
+		
+	</script>
+</body>
+</html>

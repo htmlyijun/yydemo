@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style>
+		.asd{
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+<div class="asd">1</div>
+<div class="asd">2</div>
+<div class="asd a1">3</div>
+<div class="asd">4</div>
+<div class="asd">5</div>
+<div class="asd">6</div>
+<div class="asd">7</div>
+<div class="asd">8</div>
+<div class="asd">9</div>
+<div class="asd">10</div>
+<div class="asd">11</div>
+<div class="asd">12</div>
+<div class="asd">13</div>
+<div class="asd">14</div>
+<div class="asd">15</div>
+<div class="asd">16</div>
+<div class="asd">17</div>
+<div class="asd">18</div>
+<div class="asd">19</div>
+<div class="asd">20</div>
+	<script src=""></script>
+	<script>
+	//js封装
+		function scroll(){
+			return {
+				top:document.body.scrollTop||document.documentElement.scrollTop||window.pageYOffset||0,
+				left:document.body.scrollLeft||document.documentElement.scrollLeft||window.pageXOffset||0
+			}
+		}
+		onscroll = function(){
+			var a = document.body.scrollTop;
+			console.log(a);
+		}
+		function client(){
+			return{
+				width:window.innerWidht||document.documentElement.clientWidth||document.body.clientWidth||0,
+				height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight||0
+			}
+		}
+		window.onresize = function(){
+			console.log(client().width);
+		}
+	//jq获取
+		// $(window).scroll(function(){
+		// 	alert(
+		// 		"获取浏览器显示区域（可视区域）的高度 ：  "+$(window).height()+"\n"+
+		// 		"获取页面的文档高度  ：  "+$(document).height()+"\n"+
+		// 		"浏览器当前窗口文档body的高度：  " + $(document.body).height()+"\n"+
+		// 		"获取滚动条到顶部的垂直高度 (即网页被卷上去的高度)  " + $(document).scrollTop()+"\n"+
+		// 		"获取或设置元素的高度：" +	$(".a1").height()+"\n"+
+		// 		"某个元素的上边界到body最顶部的距离："+ $(".a1").offset().top+"在元素的包含元素不含滚动条的情况下"+"\n"
+		// 	);
+		// })
+	</script>
+</body>
+</html>

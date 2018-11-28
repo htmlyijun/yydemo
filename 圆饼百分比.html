@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.yuany{
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				overflow: hidden;
+				position: relative;
+			}
+			.yuan-lefty{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background: green;
+				clip: rect(0px 250px 500px 0px);
+			}
+			.yuan-leftx{
+				background: red;
+				overflow: hidden;
+				clip: rect(0px 500px 500px 250px);
+				transform: rotate(45deg);
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			.yuan-righty{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background: gold;
+				clip: rect(0px 500px 500px 250px);
+			}
+			.yuan-rightx{
+				background: red;
+				overflow: hidden;
+				clip: rect(0px 250px 500px 0px);
+				transform: rotate(45deg);
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			.clear{
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="yuany">
+			<div class="yuan-lefty">
+				<div class="yuan-leftx">
+					
+				</div>
+			</div>
+			<div class="yuan-righty">
+				<div class="yuan-rightx">
+					
+				</div>
+			</div>
+			<span class="clear"></span>
+		</div>
+	</body>
+</html>

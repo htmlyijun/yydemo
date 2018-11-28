@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<<<<<<< HEAD
+	<title>阻止冒泡</title>
+=======
+	<title>Document</title>
+>>>>>>> 83c1bbcfdc75c5617b4f7407de4f2580f2f3ca96
+	<style>
+		div{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">1
+		<div class="twe">2
+			<div class="three">3</div>
+		</div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+<<<<<<< HEAD
+		// var body = document.body;
+		// body.onclick = function(){
+		// 	console.log('body')
+		// }
+=======
+>>>>>>> 83c1bbcfdc75c5617b4f7407de4f2580f2f3ca96
+		var one = document.getElementsByClassName("one");
+		var twe = document.getElementsByClassName("twe");
+		var three = document.getElementsByClassName("three");
+		one[0].onclick = function(e){
+			console.log(1);
+<<<<<<< HEAD
+			window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+		twe[0].onclick = function(e){
+			console.log(2);
+			window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+		three[0].onclick = function(e){
+			console.log(3);
+			window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+=======
+			// window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+		twe[0].onclick = function(e){
+			console.log(2);
+			// window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+		three[0].onclick = function(e){
+			console.log(3);
+			// window.event? window.event.cancelBubble = true : e.stopPropagation();
+		}
+
+>>>>>>> 83c1bbcfdc75c5617b4f7407de4f2580f2f3ca96
+	}
+</script>
+</html>

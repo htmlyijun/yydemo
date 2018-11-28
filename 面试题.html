@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button id="btn">我是按钮</button>
+<script>
+	var btn = document.querySelector('#btn');
+		btn.onclick = function() {
+		this.disabled = 'disabled';
+		setTimeout(function() {
+			btn.disabled = '';
+		}, 1000);
+	}
+
+	function parseQueryString(href) {
+		let name, value;
+		let str = href; //取得整个地址栏 
+		let num = str.indexOf("?");
+		str = str.substr(num + 1); //取得所有参数 
+		let arr = str.split("&"); //各个参数放到数组里 
+		let json = {};
+		for (let i = 0; i < arr.length; i++) {
+			num = arr[i].indexOf("=");
+			if (num > 0) {
+				name = arr[i].substring(0, num);
+				value = arr[i].substr(num + 1);
+				json[name] = value;
+			}
+		}
+		return json;
+	}
+	</script>
+	<script>
+	// 数组去重
+	function arr1(arr){  
+      var n=[];  
+       for(var i=0;i<arr.length;i++){  
+           if(n.indexOf(arr[i])==-1){  
+               n.push(arr[i]);  
+           }  
+       }  
+       return n;  
+   }
+	console.log(arr1([555,55,3,3,4,5,6,6,5,55,5,555,7,8,2]))
+
+	Array.prototype.distinct = function () {
+		console.log(this)
+                var arr = this,
+                    i,
+                    j,
+                    len = arr.length;
+                for (i = 0; i < len; i++) {
+                    for (j = i + 1; j < len; j++) {
+                        if (arr[i] == arr[j]) {
+                            arr.splice(j, 1);
+                            len--;
+                            j--;
+                        }
+                    }
+                }
+                return arr;
+            };
+        var a = [1, 2, 3, 4, 5, 6, 5, 3, 2, 4, 56, 4, 1, 2, 1, 1, 1, 1, 1, 1,];
+        var b = a.distinct();
+        console.log(b.toString()); //1,2,3,4,5,6,56
+
+var arr2 = ['a', 'b', 'c', 'a','aa','a1', 'a', 'b', 'b', 'c', 'd'];
+    var result = [];
+    for (var i = 0; i < arr2.length; i++) {
+        for (var j=i + 1; j < arr2.length; j++) {
+            if (arr2[i]===arr2[j]) {
+                j=++i;
+            } 
+        }
+        result.push(arr2[i]);
+    }
+    console.log(result);
+
+var arr3 = [1, 2, 3, 4, 5,55,555,5,5,55,5, 1, 23, 6, 1];
+var obj = {};
+for (i = 0; i < arr3.length; i++) {
+obj[arr3[i]] = i; 
+};
+console.log(obj); 
+var objarr3 = [];
+for (var key in obj) {
+objarr3.push(key);
+}
+console.log(objarr3);
+
+
+// 获取次数最多的
+var str ='adadsadsaadassadsaasdfdf';
+var json = {};
+for(var i = 0; i < str.length; i++){
+    if(json[str[i]]){
+        json[str[i]]++;    
+    }else{
+        json[str[i]] = 1;
+    }
+}
+
+console.log(json);
+	</script>
+</body>
+</html>

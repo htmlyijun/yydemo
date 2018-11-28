@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #test1,#test2,#test3,#test4,#test5{
+            float:left;
+            width:300px;
+            height:100px;
+            text-align:center;
+            line-height:100px;
+        }
+        #test1{
+            background:red;
+        }
+        #test2{
+            background:yellow;
+        }
+        #test3{
+            background:green;
+        }
+        #test4{
+            background:gold;
+        }
+        #test5{
+            background:blue;
+        }
+    </style>
+</head>
+<body onload="onl()">
+    <div id="test1">点击</div>
+    <div id="test2" onmouseover="onover(this)" onmouseout="onout(this)">鼠标移动</div>
+    <div id="test3">鼠标移动</div>
+    <div id="test4">鼠标按下</div>
+    <button id="button1">对#asd添加一个p</button>
+    <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>  <br/>
+    <input type="text" id="key1"/>
+    <input type="text" id="key2"/>
+    <input type="text" id="key3"/>
+    <h1 onclick="this.innerHTML='谢谢!'">请点击该文本</h1>
+    <div id="asd">
+        <p>斯蒂芬非法上访萨芬</p>
+        <p>斯蒂芬非法上访萨芬</p>
+        <p>斯蒂芬非法上访萨芬</p>
+        <p>斯蒂芬非法上访萨芬</p>
+    </div>
+    <div id="main">
+        <p>The DOM is very useful.</p>
+        <p>本例演示 <b>getElementsByTagName</b> 方法。~~~~~~~~</p>
+    </div>
+    <script>
+        var asd = document.getElementById("asd");
+//        asd.appendChild("<p>2222222222222222222</p>");
+
+        var x = asd.getElementsByTagName("div");
+//        x[0].innerHTML="11111111111";
+//        x[1].innerHTML="22222222222";
+        document.getElementById("main").style.color="red";
+        document.getElementById("main").style.border="1px solid red";
+//        有错误
+        document.write(x[1]);
+        console.log(x[1]);
+
+        function onl(){
+//            alert("这段消息由 onload 事件触发");
+        }
+
+        var test1 = document.getElementById("test1");
+        test1.onclick = function(){
+            onc("23w速度速度");
+//            console.log(this);
+//            this.innerHTML="2222222222";
+        };
+        var test3 = document.getElementById("test3");
+        test3.onmouseover=function(){onover(this)};
+        test3.onmouseout=function(){onout(this)}
+        test4.onclick = function(){oncl(this)};
+        test4.onmousedown = function(){ondown(this)};
+        test4.onmouseup = function(){onup(this)};
+        var key1 = document.getElementById("key1");
+        var key2 = document.getElementById("key2");
+        var key3 = document.getElementById("key3");
+//        key1.onkeydown = function(){
+//            log.(this)
+//        };
+        key2.onkeypress = function(){
+//             log.(this.innerHTML)
+        };
+        key3.onkeyup = function(){
+//            log.(this.innerHTML)
+        };
+        function onkeyd(){
+
+        }
+        function onc(tmp){
+            alert(tmp);
+            test1.innerHTML="第二波";
+        }
+        function onover(d){
+            d.style.backgroundColor = "black";
+        }
+        function onout(d){
+            d.style.backgroundColor = "white";
+        }
+        function oncl(d){
+            d.style.backgroundColor = "red";
+        }
+        function ondown(d){
+            d.style.backgroundColor = "black";
+        }
+        function onup(d){
+            d.style.backgroundColor = "white";
+        }
+    //        var newp = document.createElement("p");
+    //        var newnote = document.createTextNode("新段落1");
+    //        var newok = newp.appendChild(newnote);
+    //        var newok2 = "<p>新段落2</p>";
+    //        asd.innerHTML = newok;
+    //        console.log(newok);
+//
+//        console.log(newok2);
+//        var button1 = document.getElementById("button1");
+
+
+
+
+    </script>
+</body>
+</html>

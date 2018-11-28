@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div id="dd" style="width: 100px;height: 100px;background: red;">我是被复制的文本内容</div>
+	<script src="clipboard.js-master/dist/clipboard.min.js"></script>
+	<script>
+		window.onload = function(){
+			var dd = document.getElementById('dd');
+			var startTime,startX,startY;
+			dd.addEventListener("touchstart",function(e){
+		        if(e.targetTouches.length > 1){
+		            return;
+		        }
+		        startTime=Date.now();
+		        startX= e.targetTouches[0].clientX;
+		        startY= e.targetTouches[0].clientY;
+		    })
+		    dd.addEventListener("touchend",function(e){
+		        if(e.changedTouches.length > 1){
+		            return;
+		        }
+		        var endX=e.changedTouches[0].clientX;
+		        var endY=e.changedTouches[0].clientY;
+		        if(Math.abs(endX-startX) < 6 && Math.abs(endY-startY) <6){
+		         	if(Date.now()-startTime <= 500){ //长按操作
+						alert('我这是tap点击操作');
+						return;
+			        }else{
+		         		alert('我这是长按操作');
+		         		//这里放你复制的代码
+			         	var clipboard = new Clipboard('#dd', {
+					        target: function() {
+					            return document.querySelector('#dd');
+					        }
+					    });
+					    //这里有点问题，第一会弹出两次，第二不触发到error函数
+					    clipboard.on('success', function(e) {
+					    	var t = e.text;
+					        console.log(t);
+					    });
+					
+					    clipboard.on('error', function(e) {
+					        console.log(2);        
+					    });
+			        }		         	
+		        }
+			})
+		}
+	</script>
+</body>
+</html>

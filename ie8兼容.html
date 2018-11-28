@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--[if lt IE 9]>
+
+		   <style type="text/css">
+		   div{
+		    position:relative;
+			z-index:100;
+			behavior: url('ie-css3.htc');
+		   }
+		   h2{
+			display:block!important;
+			width:100%;
+			height:300px;
+			background:pink;
+			text-align:center;
+		   }
+		   .opacity{
+			-khtml-opacity:0.6;-moz-opacity:0.6;filter:alpha(opacity=60);filter:"alpha(opacity=60)";opacity:0.6; filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+		   }
+		   .bgsize{
+				width: 80px;
+				height: 70px;
+				background: url(dowebok/images/2.jpg);
+			    background-image: url('http://img0.bdstatic.com/img/image/6992fdda3cc7cd98d10273a6b34233fb80e7aec90cc.jpg');
+			    background-size: 80px 70px;
+			    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+			    src='img/asd.jpg',
+			    sizingMethod='scale');
+		   }
+		    </style>
+			<script>
+				alert('对不起，不支持您的浏览器')
+			</script>
+		<![endif]-->
+	</head>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	h2{
+		display:none;
+	}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 100px;			
+		}
+		.radius{
+			border-radius: 50% 20% 10% 40px;
+		}
+		.rgba{
+			background: rgba(99,99,99,0.5);
+		}
+		.opacity{
+			opacity: 0.5;
+		}
+
+		.boxshadow{
+			box-shadow: 5px 5px 5px yellow;
+		}
+		.textshadow{
+			text-shadow:5px 5px 5px yellow;
+		}
+		.boxnormal{
+			width: 100%;
+			padding: 0 100px;
+		}
+		.boxsizing{
+			width: 100%;
+			padding: 0 100px;
+			box-sizing:border-box;
+		}
+		.bgsize{
+			background: yellow url('img/asd.jpg') no-repeat;
+			background-size: 80px 70px;
+		}
+		.fontface{
+			font-family: fontface;
+		}
+		/*@font-face {
+			font-family:fontface;
+			src: url(fonts/haozi.ttf);
+		}*/
+		@font-face {font-family: "fontface";
+		  src: url('./fonts/newfont/webfont.eot'); /* IE9*/
+		  src: url('./fonts/newfont/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		  url('./fonts/newfont/webfont.woff') format('woff'), /* chrome、firefox */
+		  url('./fonts/newfont/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+		  url('./fonts/newfont/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+		}
+		.translate{
+			transform: translate(50px,50px);
+			/*filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.866025404, M12=0.5, M21=-0.5, M22=0.866025404) ;*/
+		}
+		.rotate{
+			transform: rotate(40deg);
+			 -o-transform: rotate(40deg);
+			 -webkit-transform: rotate(40deg);
+			 -moz-transform: rotate(40deg);
+ 			 /*filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7660444431189777, M12=-0.6427876096865394, M21=0.6427876096865398, M22=0.7660444431189779)*/
+		}
+		.scale{
+			transform: scale(.5,3);
+			/*filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='dowebok/images/2.jpg',sizingMethod='scale');*/
+		}
+		.skew{
+			transform: skew(20deg,20deg)
+		}
+	</style>
+	<body>
+		<h2>对不起，不支持您的浏览器</h2>
+		<div class="radius">
+			我是圆角
+		</div>
+		<div class="rgba">
+			我是rbga透明
+		</div>
+		<div class="opacity">
+			我是opacity透明
+		</div>
+		<div class="boxshadow">
+			我是盒子阴影
+		</div>
+		<div class="textshadow">
+			我是字体阴影
+		</div>
+		<div class="boxnormal">
+			我是盒子模型
+		</div>
+		<div class="boxsizing">
+			我是盒子模型
+		</div>
+		<div class="bgsize">
+			我是图片尺寸
+		</div>
+		<div class="fontface">
+			我是字体,还没来得及去沾花惹草，就被人拔光了 
+		</div>
+		<div class="translate">
+			我是偏移
+		</div>
+		<div class="rotate">
+			我是旋转
+		</div>
+		<div class="scale">
+			我是缩放
+		</div>
+		<div class="skew">
+			我是变形
+		</div>
+	</body>
+</html>

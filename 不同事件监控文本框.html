@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="jquery/jquery-1.9.1.min.js"></script>
+		<title>不同事件监控文本框</title>
+	</head>
+	<body>
+		change:<input id="productName" name="productName" type="text" value="" /><br />
+		input和propertychange:<input id="productName1" name="productName" type="text" value="" /><span></span><br />
+		keypress:<input id="productName2" name="productName" type="text" value="" /><br />
+		<em></em>
+
+		<!-- <input type="text" onkeyup="value=value.replace(/[^\d]/g,'')" placeholder="禁止选择非数字"> -->
+		<script>
+			var i=0;
+			$("#productName").change(function(){
+				searchProductClassbyName()
+			})
+			$('#productName1').on('input propertychange', function() {
+				searchProductClassbyName();
+				console.log($('span').html($(this).val()));
+			});
+			$("#productName2").keypress(function(){
+				searchProductClassbyName()
+			})			
+			function searchProductClassbyName(){
+				i++;
+				$("em").text(i);
+			}
+			$('input').keyup(function(){
+				$(this).val($(this).val().replace(/[^\d]/g,''))
+				// $(this)[0].value=$(this)[0].value.replace(/[^\d]/g,'')
+			})
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+	<script>
+	var t = document.querySelectorAll;
+	console.log(t)
+	var ds = t.apply(document,['div']);
+	var ps = t.apply(document,['p']);
+	var arr = [];
+	[].push.apply(arr,ds);
+	[].push.apply(arr,ps);
+	console.log(arr);
+	var o = {
+		name:1,
+		fn:function(arr,obj){
+			console.log(arr)
+			console.log(obj)
+			for(var i=0;i<arr.length;i++){
+				for(var k in obj){
+					arr[i].style[k] = obj[k];
+				}
+			}
+		},
+		fn2:function(t){
+			console.log(t)
+		}
+	}
+	o.fn2.apply(document,[1112])
+	var ooo = {
+		'border':'1px solid red'
+	}
+	o.fn.apply(document,[arr,{'border':'1px solid red'}])
+
+
+	function person(name,age){
+		this.name = name;
+		this.age = age
+		console.log(this)
+	}
+	function student(name,age,cj){
+		person.apply(this,[name,age])
+		// this.name = name;
+		this.chengji = cj
+	}
+	// var yjj = new person('yj',12);
+	// console.log(yjj)
+	var s = new student('yj',12,100)
+
+	var ss = '1s';
+	</script>
+</body>
+</html>

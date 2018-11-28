@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		width: 100px;
+		height: 100px;
+		float:left;
+	}
+	div:nth-child(1){
+		background: yellow;
+	}
+	div:nth-child(2){
+		background: red;
+	}
+	div:nth-child(3){
+		background: green;
+	}
+	html,body{
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<body>
+	<div>yellow</div>
+	<div>red</div>
+	<div>green</div>
+	<button>保存到浏览器中</button>
+	<button>取浏览器里的颜色，再加载进去</button>
+	<button>清除浏览器里的颜色</button>
+	<script>
+		var divs = document.querySelectorAll("div");
+		var buttons = document.querySelectorAll("button");
+		var c = null;
+		for(var i=0;i<divs.length;i++){
+			divs[i].index = i;
+			divs[i].onclick = function(){
+				c = window.getComputedStyle(this).backgroundColor;
+				document.body.style.background = c;
+			}
+		}
+		buttons[0].onclick = function(){
+			if(c==null){
+				return
+			}
+			window.localStorage.setItem("mybg",c)
+		}
+		buttons[1].onclick = function(){
+			// if(c==null){
+			// 	return
+			// }
+			c = window.localStorage.getItem("mybg")
+			document.body.style.background = c;
+		}
+		buttons[2].onclick = function(){
+			if(c==null){
+				return
+			}
+			// 只清除某一个
+			window.localStorage.removeItem("mybg")
+			// 全部清除
+			window.localStorage.clear()
+		}	
+	</script>
+</body>
+</html>

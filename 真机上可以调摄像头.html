@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>手机调摄像头</title>
+	</head>
+	<input type="file" id="browseFile" onchange="">
+	<script>
+    var video_element = document.getElementById('video');
+    if (navigator.getUserMedia) { // opera should use opera.getUserMedia now, chrome use webkitGetUserMedia
+             navigator.getUserMedia('video',success, error);
+    }
+    function success(stream) {
+             video_element.src =stream;
+    }
+	</script>
+</html>

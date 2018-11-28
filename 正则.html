@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //\d 是否为数字，\D是否为非数字，\w是否为字母和数字，\W是否为非字母和数字 \s 不可见字符（空格换行）\S可见字符
+    console.log(/\d/.test(1));//true数字就是数字
+    console.log(/\d/.test("1"));//true字符串数字也是数字
+    console.log(/\d/.test("d"));//false非数字就不是数字
+    console.log(/\D/.test("d"));//true
+    console.log(/\D/.test("1"));//false
+    console.log(/\D/.test(1));//false
+    console.log(/\d/.test("1d"));//test不精确，带了匹配的也会返回true
+
+    console.log(/\w/.test("dd"));//true
+    console.log(/\w/.test("1"));//true
+    console.log(/\W/.test("Dd"));//false
+    console.log(/\W/.test("11"));//false
+
+    console.log(/\s/.test(" "));//true
+    console.log(/\S/.test(" "));//false
+    console.log(/\S/.test("D"));//true
+
+    var regExp = /\d/;
+    console.log(regExp.test("11"));//true
+    //[]取里面每一项，|是或者，^非
+    console.log(/[abc]d|w/.test("ad"));//true [里面的每一项都拿出来]和d结合，ad/bd/cd只要存在就返回true
+    //[a-z]中间用-是范围的
+    console.log(/[a-z]/.test("a"));//true a存在于a-z中
+    //可以组合匹配
+    console.log(/a-zA-Z0-4/.test("a"));//true;
+    //^一般用在限定开头，$限定结束
+    console.log(/^ok$/.test("ok"));//true
+    //*可以出现多次0-N次
+    console.log(/^a*$/.test("aaaaaa"));//true
+    console.log(/^a*$/.test(""));//true
+    console.log(/^a7*$/.test("a7"));//true
+    console.log(/^(a7)*$/.test("a7a7"));//true
+    //+可以出现多次1-N次
+    console.log(/^a+$/.test(""));//false
+    console.log(/^a+$/.test("aaaaaaa"));//true
+    //?可以出现0-1次
+    console.log(/^a?$/.test("a"));//true
+    console.log(/^a?$/.test(""));//true
+    console.log(/^a?$/.test("aaaa"));//false
+
+    //{}出现可以出现自定义次数 再后面出现逗号表示可以出现大于该次数值多少
+    console.log(/^a{2}$/.test("aa"));//true
+    console.log(/^a{2}$/.test("aaa"));//false
+    console.log(/^a{2}$/.test("a"));//false
+    console.log(/^a{2,}$/.test("aaaaaa"));//false  必须大于2次
+    console.log(/^a{2,5}$/.test("aaaaaa"));//false 必须大于2次小于5次
+
+
+</script>
+</body>
+</html>

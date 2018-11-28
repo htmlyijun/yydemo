@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{padding: 0;margin: 0;}
+		.a{
+			width: 50px;height: 50px;
+			background-color: red;
+		}
+		div:nth-child(2){
+			background: pink;/*没效果*/
+		}
+		p:nth-child(2){
+			background:black;
+		}
+		div:nth-of-type(3),p:nth-of-type(3){
+			background:yellow;
+		}
+		/*div:nth-child(2)   1.先找到第二个元素 2.这个元素必须要div
+		p:nth-of-type(2)   他是找到第二个div*/
+	</style>
+</head>
+<body>
+	<div id="ok">
+		<p class="a">1</p>
+		<p class="a">2</p>
+		<p class="a">3</p>
+		<p class="a">4</p>
+		<div class="a">1</div>
+		<div class="a">2</div>
+		<div class="a">3</div>
+		<div class="a">4</div>
+		<div class="a">5</div>
+	</div>
+</body>
+</html>

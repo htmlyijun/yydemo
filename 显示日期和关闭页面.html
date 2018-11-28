@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+</head>
+<body>
+<div id="o">倒计时跳转</div>
+	<script>
+		var d = new Date();
+        document.write(d);document.write('<br/>');
+//        输出本月几号
+        document.write('日：'+d.getDate());document.write('<br/>');
+//        输出星期几
+        document.write('星期：'+d.getDay());document.write('<br/>');
+//        输出月份
+        document.write('月：'+(d.getMonth()+1));document.write('<br/>');
+//        输出年份
+        document.write('年：'+d.getFullYear());document.write('<br/>');
+//        输入小时、分钟、秒钟
+	    document.write(d.getHours()+"时-"+ d.getMinutes()+"分-"+ d.getSeconds()+'秒');document.write('<br/>');
+//        输出至今的毫秒数(毫秒与分钟小时等的切换1秒等于1000毫秒)
+        document.write(d.getTime());document.write('<br/>');
+//        设置时间set
+        d.setFullYear(2200);d.setMonth(6);d.setDate(7);d.setHours(15);d.setMinutes(15);d.setSeconds(15);
+        document.write(d);
+		var time = document.createElement('p');
+		time.innerHTML=10;
+		time.id='a1';
+		document.body.appendChild(time);
+		var oo = document.getElementById('o');
+		var t = document.getElementById('a1').innerText;
+		var o = parseInt(t);
+		var timer = setInterval(function(){
+			o--;
+			document.getElementById('a1').innerText = o;
+			if(o<=0){
+				clearInterval(timer);
+				oo.innerHTML = "恭喜";
+				// 本窗口打开页面
+				// window.location.href="http://www.baidu.com";
+				// 新窗口打开页面
+				// window.open('http://www.baidu.com')
+				// 关闭本页面
+				// window.close();
+			}
+		},100)
+	</script>
+</body>
+</html>

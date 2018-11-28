@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;padding: 0;
+	}
+	.wrap{
+		width: 1100px;
+		height: 400px;
+		border: 1px solid red;
+		margin:20px auto;
+		display: flex;
+		/*justify-content: flex-start;*/
+		/*justify-content:space-around;*/
+		justify-content: space-between;
+		align-items:flex-start;
+		/*flex-wrap: wrap;*/
+	}
+	.ww{
+		width: 100px;
+		height: 100px;
+		background: rgba(0,0,0,.5);
+		border-radius: 10px;
+		margin:10px;
+		display: flex;
+	}
+	.d{
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background: white;
+		margin:5px;
+	}
+	.ww:nth-child(1){}
+	.ww:nth-child(2){
+		justify-content: center;	
+	}
+	.ww:nth-child(3){
+		justify-content: flex-end;	
+	}
+	.ww:nth-child(4){
+		align-items:center;
+		justify-content: flex-end;	
+	}
+	.ww:nth-child(5){
+		justify-content: center;
+		align-items: center;	
+	}
+	.ww:nth-child(6){
+		justify-content: flex-start;	
+		align-items: center;
+	}
+	.ww:nth-child(7){
+		justify-content: flex-start;
+		align-items: flex-end;	
+	}
+	.ww:nth-child(8){
+		justify-content: center;
+		align-items: flex-end;	
+	}
+	.ww:nth-child(9){
+		justify-content: flex-end;
+		align-items: flex-end;	
+	}
+	.ww:nth-child(10){
+		justify-content: space-between;
+	}
+	.ww:nth-child(10) .d:nth-child(1){
+		align-self: flex-start;
+	}
+	.ww:nth-child(10) .d:nth-child(2){
+		align-self: flex-end;
+	}
+	.ww:nth-child(11){
+			justify-content: space-between;
+		align-items:  center;	
+	}
+	.ww:nth-child(12){
+		justify-content: space-between;
+		align-items: flex-end;	
+	}
+</style>
+<body>
+	<div class="wrap">
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div><div class="d"></div></div>
+		<div class="ww"><div class="d"></div><div class="d"></div><div class="d"></div></div>
+	</div>
+</body>
+</html>

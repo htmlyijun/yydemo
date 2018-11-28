@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .red{
+            color:red;
+        }
+        li{
+            display:block;
+            background-color:red;
+        }
+    </style>
+</head>
+<body>
+<ul id="qq">
+    <li>qwe</li>
+    <li>qwe</li>
+    <li>qwe</li>
+    <li>qwe</li>
+    <li>qwe</li>
+    <li>qwe</li>
+</ul>
+
+<script>
+    var qq = document.getElementById("qq");
+    qq.onclick=function(){
+        qq.onmouseover=function(){
+            console.log(1);
+        }
+    }
+</script>
+</body>
+</html>

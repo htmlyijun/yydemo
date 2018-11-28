@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="static/assets/js/jquery-1.9.1.min.js"></script>
+		<style>
+			ul li{list-style-type: none;display: block;}
+			.asd{color: red;}
+		</style>
+	</head>
+	<body>
+		<input type="text" class="search-input" />
+		<a href="#" class="search-query">搜索</a>
+		<ul class="list1">
+			<li class="asd">
+				<a href="#">我爱北京他们1</a>
+			</li>
+			<li class="asd">
+				<a href="#">我爱北京他们2</a>
+			</li>
+			<li class="asd">
+				<a href="#">我爱北京他们3</a>
+			</li>
+			<li class="asd">
+				<a href="#">我爱北京他们4</a>
+			</li>
+			<li class="asd">
+				<a href="#">我爱北京他们5</a>
+			</li>
+			<li class="asd">
+				<a href="#">我爱北京他们6</a>
+			</li>
+		</ul>
+		结果:
+		<ul class="list2"></ul>
+	</body>
+	<script>
+	$(document).ready(function(){
+		$(".search-query").click(function(){
+			var str = $(".search-input").val();
+			var arr=[];
+			var tean="";
+			$(".list1 li").children("a").each(function(i,k){
+				var str_this = $(k).text();
+				var $str2 = $(k).parent();
+				if(str_this.indexOf(str)>-1){
+					arr.push($str2);
+				}
+			})
+			for(var i=0;i<arr.length;i++){
+				tean = tean+"<li class='asd'>"+arr[i].html()+"</li>";
+			}
+			$(".list2").html(tean);
+		})
+
+		//	第二种，点击按钮把list2清空。然后依次再list1尾部中加载一个
+		// $(".search-query").click(function(){
+		// 	var str =  $(".search-input").val();
+		// 	var arr=[];
+		// 	$(".list2").empty();
+		// 	$(".list1").children("li").each(function(){
+		// 		var str_this = $(this).html();
+		// 		if(str_this.indexOf(str)>-1){
+		// 			var str_this_li = "<li>"+str_this+"</li>";
+		// 			$(".list2").append(str_this_li);
+		// 		}
+		// 	})
+		// })
+	})
+	</script>
+</html>

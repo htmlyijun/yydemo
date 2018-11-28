@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+	<title></title>   
+	</head>
+	<style>
+	p{
+		width: 200px;
+		border: 1px solid red;
+	}
+	p.one{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	p.twe{
+		text-overflow: -o-ellipsis-lastline;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+	p.english{
+		word-break:break-all;
+		/*word-break:break-word;*/
+	}
+	p.chinese{
+		white-space: nowrap;
+	}
+	</style>
+<body>
+	<!-- Word-break：break-all把字母和数字换行；
+	Word-warp：break-word 把字母和数字换行，但保留空格换行；
+	White-space：nowrap，强制一行。 -->
+	<p>我这只有中文，是正常的格式。我这只有中文，是正常的格式。</p>
+	<p>wo zhe dou shi yingwen zimu,mei lian qilai</p>
+	<p>wozhedoushiyingwenzimu,lianqilaile</p>
+	<p class="chinese">我这只有中文,但是我让他们变到一排去</p>
+	<p class="english">wozhedoushiyingwenzimu,lianqilaile</p>
+	<p class="one">我是只占一行，多余的变成点点点点点点点点点点点点点点点</p>
+	<p class="twe">我是只占两行，第二行多余的变成点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点点</p>
+</body>
+</html>
